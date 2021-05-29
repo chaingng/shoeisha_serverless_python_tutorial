@@ -1,0 +1,4 @@
+application/zappa_settings.json
+serverless-bot/zappa_settings.json
+serverless-bot/serverless-gas-client-secret.json
+.vscode

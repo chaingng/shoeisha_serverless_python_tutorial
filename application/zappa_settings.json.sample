@@ -1,0 +1,17 @@
+{
+    "dev": {
+        "app_function": "server.app",
+        "aws_region": "ap-northeast-1",
+        "profile_name": "serverless-blog",
+        "project_name": "application",
+        "runtime": "python3.8",
+        "s3_bucket": "zappa-r6127qp3o",
+        "environment_variables": {
+            "SERVERLESS_BLOG_CONFIG": "production",
+            "SERVERLESS_USER_PW": "XXXXXX",
+            "SERVERLESS_SECRET_KEY": "XXXXXXX",
+            "SERVERLESS_AWS_ACCESS_KEY_ID": "XXXX",
+            "SERVERLESS_AWS_SECRET_KEY": "XXXX"
+        }
+    }
+}
