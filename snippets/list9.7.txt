@@ -1,0 +1,5 @@
+export SERVERLESS_BLOG_CONFIG=production
+export SERVERLESS_USER_PW=[本番環境でのユーザーログインパスワード]
+export SERVERLESS_SECRET_KEY=[本番環境でのsecret]
+export SERVERLESS_AWS_ACCESS_KEY_ID=[アクセスキーID]
+export SERVERLESS_AWS_SECRET_KEY=[シークレットアクセスキー]

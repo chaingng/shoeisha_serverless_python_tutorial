@@ -1,0 +1,6 @@
+{
+    "dev": {
+        "certificate_arn": "arn:aws:acm:us-east-1:your-certificate_arn",
+        "domain": "www.your-domein-name.org",
+    }
+}

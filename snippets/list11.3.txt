@@ -1,0 +1,21 @@
+{
+    "dev": {
+        "app_function": "bot.app",
+        "aws_region": "ap-northeast-1",
+        "profile_name": "serverless-blog",
+        "project_name": "serverless-bot",
+        "runtime": "python3.8",
+        "s3_bucket": "zappa-xxxxxxxx",
+        "environment_variables": {
+            "SERVERLESS_AWS_ACCESS_KEY_ID": "xxx",
+            "SERVERLESS_AWS_SECRET_KEY": "xxx",
+            "SERVERLESS_SLACK_BOT_API_TOKEN": "xxx"
+        },
+        "events": [
+            {
+                "function": "bot.run_bot",
+                "expression": "cron(59 14 * * ? *)"
+            }
+        ]
+    }
+}

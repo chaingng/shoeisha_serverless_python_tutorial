@@ -5,7 +5,7 @@
         "profile_name": "serverless-blog",
         "project_name": "application",
         "runtime": "python3.8",
-        "s3_bucket": "zappa-r6127qp3o",
+        "s3_bucket": "zappa-xxxxxxxxx",
         "environment_variables": {
             "SERVERLESS_BLOG_CONFIG": "production",
             "SERVERLESS_USER_PW": "XXXXXX",

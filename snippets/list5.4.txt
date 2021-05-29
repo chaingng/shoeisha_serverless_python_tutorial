@@ -1,0 +1,4 @@
+@app.route('/entries/<int:id>/update', methods=['POST'])
+def update_entry(id):
+    # 記事の更新処理を実装
+    return f'記事{id}が更新されました'
