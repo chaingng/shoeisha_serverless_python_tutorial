@@ -5,7 +5,7 @@
         "profile_name": "serverless-blog",
         "project_name": "serverless-bot",
         "runtime": "python3.8",
-        "s3_bucket": "zappa-xxxxxxxx",
+        "s3_bucket": "zappa-xxxxxxxxx",
         "environment_variables": {
             "SERVERLESS_AWS_ACCESS_KEY_ID": "xxx",
             "SERVERLESS_AWS_SECRET_KEY": "xxx"

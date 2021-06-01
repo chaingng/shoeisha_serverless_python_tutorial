@@ -1,6 +1,6 @@
 "events": [
     {
-        "function": "[実行したいメソッド名]",
-        "expression": "[cronの記述形式で実行するタイミングを指定]"
+        "function": "実行したいメソッド名",
+        "expression": "cronの記述形式で実行するタイミングを指定"
     }
 ]

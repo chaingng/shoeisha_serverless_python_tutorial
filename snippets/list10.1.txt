@@ -37,7 +37,7 @@ def update_gas(today, entry_num, doc_id):
 
 
 def run_bot():
-    doc_id = 'xxxxxxxxxxxxxxxxx'
+    doc_id = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
     today = str(datetime.datetime.now(pytz.timezone('Asia/Tokyo')).date())
     entry_num = get_kpi()
     update_gas(today, entry_num, doc_id)

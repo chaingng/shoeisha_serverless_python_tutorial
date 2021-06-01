@@ -1,4 +1,4 @@
 [serverless-blog]
-aws_access_key_id = [zappa用のアクセスキーID]
-aws_secret_access_key = [zappa用のシークレットアクセスキー]
-region=ap-northeast-1
+aws_access_key_id = zappa用のアクセスキーID
+aws_secret_access_key = zappa用のシークレットアクセスキー
+region = ap-northeast-1
