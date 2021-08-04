@@ -18,7 +18,7 @@
 
 ## Q&A
 
-### Flask-Scriptがインストールできない
+### 1.Flask-Scriptがインストールできない
 
 #### 原因
 
@@ -44,7 +44,7 @@ pipenv install "Flask==1.1.2"
 
 その後、Flask-Scriptのインストールが可能になります。
 
-### zappaのインストール時にコンフリクトが発生する
+### 2.zappaのインストール時にコンフリクトが発生する
 
 #### 原因
 
@@ -61,3 +61,37 @@ pipenv install "Flask==1.1.2"
 ```
 
 その後、zappaのインストールが可能になります。
+
+
+### 3.zappa deploy実行時にエラーが発生する
+
+#### 原因
+
+zappaの関連ライブラリのアップデートにより、zappaにて以下のエラーが発生しております。
+
+```
+Traceback (most recent call last):
+  File "/Users/hondatakatomo/.local/share/virtualenvs/application-tAyQEiLX/lib/python3.8/site-packages/zappa/cli.py", line 3422, in handle
+    sys.exit(cli.handle())
+  File "/Users/hondatakatomo/.local/share/virtualenvs/application-tAyQEiLX/lib/python3.8/site-packages/zappa/cli.py", line 588, in handle
+    self.dispatch_command(self.command, stage)
+  File "/Users/hondatakatomo/.local/share/virtualenvs/application-tAyQEiLX/lib/python3.8/site-packages/zappa/cli.py", line 630, in dispatch_command
+    self.deploy(self.vargs["zip"], self.vargs["docker_image_uri"])
+  File "/Users/hondatakatomo/.local/share/virtualenvs/application-tAyQEiLX/lib/python3.8/site-packages/zappa/cli.py", line 952, in deploy
+    template = self.zappa.create_stack_template(
+  File "/Users/hondatakatomo/.local/share/virtualenvs/application-tAyQEiLX/lib/python3.8/site-packages/zappa/core.py", line 2417, in create_stack_template
+    self.cf_template.add_description("Automatically generated with Zappa")
+AttributeError: 'Template' object has no attribute 'add_description'
+```
+
+#### 対応方法
+
+該当のzappa関連ライブラリである`troposphere`を、以下のバージョン指定でインストールしてください。
+
+```
+pipenv install "troposphere==2.7.1"
+```
+
+2021/08/04時点でのzappa最新バージョン0.53.0では未対応ですが
+現在修正対応中のため、今後はzappaの最新バージョンにてエラーが発生しないよう対応される見込みです。
+随時こちらでも情報をアップデートさせていただきます。
