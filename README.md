@@ -148,62 +148,16 @@ botocore.exceptions.NoCredentialsError: Unable to locate credentials
 
 #### 対応方法
 
-環境変数の設定方法は２つあります。
-
-1. windowsのシステム環境設定から設定(macの場合は.bashrc)
-1. `.env`にて設定
-
-##### 1.windowsのシステム環境設定から設定する方法(macの場合は.bashrc)
-
 以下の５つの環境変数が正しく設定されているか確認してみてください。
 
+「[誤字]」の項での値が正しく直っているか（`ACEESS` -> `ACCESS`）も再度ご確認ください。
+
 ```
-SERVERLESS_BLOG_CONFIG=production
-SERVERLESS_USER_PW=xxxx
-SERVERLESS_SECRET_KEY=xxxx
-SERVERLESS_AWS_ACCESS_KEY_ID=[AWSアクセスキーID]
-SERVERLESS_AWS_SECRET_KEY=[AWSシークレットキー]
+SERVERLESS_BLOG_CONFIG
+SERVERLESS_USER_PW
+SERVERLESS_SECRET_KEY
+SERVERLESS_AWS_ACCESS_KEY_ID
+SERVERLESS_AWS_SECRET_KEY
 ```
 
 設定後、windowsを再起動して環境変数が読み込まれているか確認してみてください。
-
-##### 2. .envにて設定する方法
-
-本文では解説しておりませんが、Pipenvの機能の１つで、`.env`ファイルをPipfileと同じ箇所に設定すると環境変数として読み込まれる機能があります。
-
-環境変数の設定の仕方にお困りの方に、こちらも合わせて解説します。
-
-例として、windowsで問題が発生する方が多かったため、windowsの場合の手順を解説します。
-
-1. windowsのシステム環境設定から、関連する環境変数を削除（SERVERLESS〜で始まる5つの値）
-3. windowsを再起動
-4. 再度システム環境変数を確認し削除されていることを確認
-5. applicationフォルダ直下（Pipfileと同じ場所）に「.env」という名前でファイルを作成し、以下の内容を記載
-
-```
-SERVERLESS_BLOG_CONFIG=production
-SERVERLESS_USER_PW=xxxx
-SERVERLESS_SECRET_KEY=xxxx
-SERVERLESS_AWS_ACCESS_KEY_ID=[AWSアクセスキーID]
-SERVERLESS_AWS_SECRET_KEY=[AWSシークレットキー]
-```
-
-上記が完了しましたら、以下のコマンドを実行してみてください。
-
-```
-python mange.py init_db
-```
-
-正しく.envファイルが読み込まれていましたら、「Loading .env environment variables...」とうメッセージが表示されます。
-読み込まれない場合は、以下が原因になります。
-
-1. `.env`が正しい場所に置かれていない
-1. `.env`ファイルが正しく作成されていない
-
-１の場合は、Pipfileと同じ場所に`.env`ファイルが置かれているか確認してみてください。
-
-２の場合は、applicationフォルダ直下で以下のコマンドを打ってファイルの中身が表示されるかも確認してみてください。(windowsの場合のコマンドです)
-```
-type .env
-```
-
