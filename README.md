@@ -15,6 +15,44 @@
 
 `zappa_settings.json`は`zappa_settings.json.sample`としてサンプルを置いております。
 
+## 誤字
+
+### 環境変数 （誤）AWS_ACEESS_KEY_ID -> （正）AWS_ACCESS_KEY_ID
+
+変更後の箇所は以下になります。(詳細は[こちら](https://github.com/chaingng/shoeisha_serverless_python_tutorial/commit/c6080953136b939b6af48d4c8ac1a74a8377f7b5)をご覧ください)
+
+
+1. `~/.bashrc`
+```
+AWS_ACCESS_KEY_ID = 'AWS_ACCESS_KEY_ID'
+```
+
+
+2. `application/flask_blog/models/entries.py`
+```
+aws_access_key_id = app.config.get('AWS_ACCESS_KEY_ID')
+```
+
+3. `application/flask_blog/models/sessions.py`
+```
+aws_access_key_id = app.config.get('AWS_ACCESS_KEY_ID')
+```
+
+4. `application/flask_blog/config.py`
+```
+class DevelopmentConfig(Config):
+    ....
+    AWS_ACCESS_KEY_ID = 'AWS_ACCESS_KEY_ID'
+    ....
+    SESSION_DYNAMODB_KEY_ID = AWS_ACCESS_KEY_ID
+    ....
+
+class ProductionConfig(Config):
+    ....
+    AWS_ACCESS_KEY_ID = os.environ.get('SERVERLESS_AWS_ACCESS_KEY_ID')
+    ....
+    SESSION_DYNAMODB_KEY_ID = AWS_ACCESS_KEY_ID
+```
 
 ## Q&A
 
