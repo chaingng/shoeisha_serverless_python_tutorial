@@ -150,7 +150,7 @@ botocore.exceptions.NoCredentialsError: Unable to locate credentials
 
 以下の５つの環境変数が正しく設定されているか確認してみてください。
 
-「[誤字]」の項での値が正しく直っているか（`ACEESS` -> `ACCESS`）も再度ご確認ください。
+「誤字」の項での値が正しく直っているか（`ACEESS` -> `ACCESS`）も再度ご確認ください。
 
 ```
 SERVERLESS_BLOG_CONFIG
