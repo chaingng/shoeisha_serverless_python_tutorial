@@ -161,3 +161,21 @@ SERVERLESS_AWS_SECRET_KEY
 ```
 
 設定後、windowsを再起動して環境変数が読み込まれているか確認してみてください。
+
+### 5. 10章にてzappa deploy時に`Error: Warning! Status check on the deployed lambda failed. A GET request to '/' yielded a 502 response code.` が発生するが動作に問題ないか
+
+Zappaのデフォルトでは、Webアプリケーションも動くことを想定しているため
+エンドポイントが存在しない場合、つまり10章のスクリプトだけの場合には上記のWarningが表示されますが、動作に問題はございません。
+
+もしWarningを消したい場合は、Configにて以下の設定を加えることで表示されなくなります。
+
+```
+{
+    "dev": {
+        "apigateway_enabled": false,
+        ....
+    }
+}
+```
+
+本書ではWarning非表示のための設定を追記することでチュートリアルが煩雑になることを防ぐため、あえて注釈での説明のみにとどめておりましたが、こちらで追加説明させていただきます。
