@@ -130,6 +130,13 @@ AttributeError: 'Template' object has no attribute 'add_description'
 pipenv install "troposphere==2.7.1"
 ```
 
+その後、すでに`zappa deploy`を実施していた場合は一度`undeploy`してから再度`deploy`してください。
+
+```
+zappa undeploy dev
+zappa deploy dev
+```
+
 2021/08/04時点でのzappa最新バージョン0.53.0では未対応ですが
 現在修正対応中のため、今後はzappaの最新バージョンにてエラーが発生しないよう対応される見込みです。
 随時こちらでも情報をアップデートさせていただきます。
