@@ -211,3 +211,9 @@ Zappaのデフォルトでは、Webアプリケーションも動くことを想
 コードをアップデートしたときに順に動作確認することで急に大きな問題が発生することを防いだり、
 また本書の構成としてステップごとに学んでいただけるようにというコンセプトも理由としてございます。
 
+### 8. Mac M1を使っている場合にどのPythonバージョンをインストールすればよいか
+
+[Support macOS 11 and Apple Silicon Macs](https://bugs.python.org/issue41100)にあるとおり、Python3.8以降ではM1もサポートされています。
+
+Python3.9以降を新規で使いたい場合は[リリースニュース](https://www.python.org/downloads/release/python-391/)である通り
+Apple Siliconに対応したuniversal版のインストーラーをお使いください。
