@@ -74,10 +74,13 @@ ModuleNotFoundError: No module named 'flask._compat'
 
 #### 対応方法
 
-Flaskバージョンを本書記載の1.1.2でインストールしてください。
+以下のコマンドで、下記のライブラリをバージョン指定でインストールしてください。
 
 ```
 pipenv install "Flask==1.1.2"
+pipenv install "Jinja2==3.0.3"
+pipenv install "itsdangerous==2.0.1"
+pipenv install "Werkzeug==0.15.6"
 ```
 
 その後、Flask-Scriptのインストールが可能になります。
