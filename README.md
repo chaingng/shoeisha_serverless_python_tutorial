@@ -1,3 +1,32 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [「動かして学ぶ！Pythonサーバレスアプリ開発入門」 サンプルコード](#%E5%8B%95%E3%81%8B%E3%81%97%E3%81%A6%E5%AD%A6%E3%81%B6python%E3%82%B5%E3%83%BC%E3%83%90%E3%83%AC%E3%82%B9%E3%82%A2%E3%83%97%E3%83%AA%E9%96%8B%E7%99%BA%E5%85%A5%E9%96%80-%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%82%B3%E3%83%BC%E3%83%89)
+  - [概要](#%E6%A6%82%E8%A6%81)
+  - [誤字](#%E8%AA%A4%E5%AD%97)
+    - [環境変数 （誤）AWS_ACEESS_KEY_ID -> （正）AWS_ACCESS_KEY_ID](#%E7%92%B0%E5%A2%83%E5%A4%89%E6%95%B0-%E8%AA%A4aws_aceess_key_id---%E6%AD%A3aws_access_key_id)
+  - [QA](#qa)
+    - [1.Flask-Scriptがインストールできない](#1flask-script%E3%81%8C%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84)
+      - [原因](#%E5%8E%9F%E5%9B%A0)
+      - [対応方法](#%E5%AF%BE%E5%BF%9C%E6%96%B9%E6%B3%95)
+    - [2.zappaのインストール時にコンフリクトが発生する](#2zappa%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E6%99%82%E3%81%AB%E3%82%B3%E3%83%B3%E3%83%95%E3%83%AA%E3%82%AF%E3%83%88%E3%81%8C%E7%99%BA%E7%94%9F%E3%81%99%E3%82%8B)
+      - [原因](#%E5%8E%9F%E5%9B%A0-1)
+      - [対応方法](#%E5%AF%BE%E5%BF%9C%E6%96%B9%E6%B3%95-1)
+    - [3.zappa deploy実行時にエラーが発生する](#3zappa-deploy%E5%AE%9F%E8%A1%8C%E6%99%82%E3%81%AB%E3%82%A8%E3%83%A9%E3%83%BC%E3%81%8C%E7%99%BA%E7%94%9F%E3%81%99%E3%82%8B)
+      - [原因](#%E5%8E%9F%E5%9B%A0-2)
+      - [対応方法](#%E5%AF%BE%E5%BF%9C%E6%96%B9%E6%B3%95-2)
+    - [4. P177の python manage.py init_db で 「Unable to locate credentials」エラーが発生する](#4-p177%E3%81%AE-python-managepy-init_db-%E3%81%A7-unable-to-locate-credentials%E3%82%A8%E3%83%A9%E3%83%BC%E3%81%8C%E7%99%BA%E7%94%9F%E3%81%99%E3%82%8B)
+      - [原因](#%E5%8E%9F%E5%9B%A0-3)
+      - [対応方法](#%E5%AF%BE%E5%BF%9C%E6%96%B9%E6%B3%95-3)
+    - [5. 10章にてzappa deploy時に`Error: Warning! Status check on the deployed lambda failed. A GET request to '/' yielded a 502 response code.` が発生するが動作に問題ないか](#5-10%E7%AB%A0%E3%81%AB%E3%81%A6zappa-deploy%E6%99%82%E3%81%ABerror-warning-status-check-on-the-deployed-lambda-failed-a-get-request-to--yielded-a-502-response-code-%E3%81%8C%E7%99%BA%E7%94%9F%E3%81%99%E3%82%8B%E3%81%8C%E5%8B%95%E4%BD%9C%E3%81%AB%E5%95%8F%E9%A1%8C%E3%81%AA%E3%81%84%E3%81%8B)
+    - [6. P146で「これまでセッション情報はローカルに保存していましたが」とあるものの、これまでセッションのコードは出てきていないためどの箇所で利用しているのか](#6-p146%E3%81%A7%E3%81%93%E3%82%8C%E3%81%BE%E3%81%A7%E3%82%BB%E3%83%83%E3%82%B7%E3%83%A7%E3%83%B3%E6%83%85%E5%A0%B1%E3%81%AF%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E3%81%AB%E4%BF%9D%E5%AD%98%E3%81%97%E3%81%A6%E3%81%84%E3%81%BE%E3%81%97%E3%81%9F%E3%81%8C%E3%81%A8%E3%81%82%E3%82%8B%E3%82%82%E3%81%AE%E3%81%AE%E3%81%93%E3%82%8C%E3%81%BE%E3%81%A7%E3%82%BB%E3%83%83%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E3%82%B3%E3%83%BC%E3%83%89%E3%81%AF%E5%87%BA%E3%81%A6%E3%81%8D%E3%81%A6%E3%81%84%E3%81%AA%E3%81%84%E3%81%9F%E3%82%81%E3%81%A9%E3%81%AE%E7%AE%87%E6%89%80%E3%81%A7%E5%88%A9%E7%94%A8%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E3%81%AE%E3%81%8B)
+    - [7. P157の`.bashrc`の環境変数はP.175で`zappa_settings.json`で設定しているので不要ではないか](#7-p157%E3%81%AEbashrc%E3%81%AE%E7%92%B0%E5%A2%83%E5%A4%89%E6%95%B0%E3%81%AFp175%E3%81%A7zappa_settingsjson%E3%81%A7%E8%A8%AD%E5%AE%9A%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E3%81%AE%E3%81%A7%E4%B8%8D%E8%A6%81%E3%81%A7%E3%81%AF%E3%81%AA%E3%81%84%E3%81%8B)
+    - [8. Mac M1を使っている場合にどのPythonバージョンをインストールすればよいか](#8-mac-m1%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E3%81%84%E3%82%8B%E5%A0%B4%E5%90%88%E3%81%AB%E3%81%A9%E3%81%AEpython%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB%E3%81%99%E3%82%8C%E3%81%B0%E3%82%88%E3%81%84%E3%81%8B)
+    - [9. P177でpython manage.py init_dbを実行するとAccessDeniedExceptionが発生するがzappa-exec-userの権限が不足しているか](#9-p177%E3%81%A7python-managepy-init_db%E3%82%92%E5%AE%9F%E8%A1%8C%E3%81%99%E3%82%8B%E3%81%A8accessdeniedexception%E3%81%8C%E7%99%BA%E7%94%9F%E3%81%99%E3%82%8B%E3%81%8Czappa-exec-user%E3%81%AE%E6%A8%A9%E9%99%90%E3%81%8C%E4%B8%8D%E8%B6%B3%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E3%81%8B)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 「動かして学ぶ！Pythonサーバレスアプリ開発入門」 サンプルコード
 ====
 
