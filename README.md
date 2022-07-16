@@ -220,3 +220,11 @@ Zappaのデフォルトでは、Webアプリケーションも動くことを想
 
 Python3.9以降を新規で使いたい場合は[リリースニュース](https://www.python.org/downloads/release/python-391/)である通り
 Apple Siliconに対応したuniversal版のインストーラーをお使いください。
+
+### 9. P177でpython manage.py init_dbを実行するとAccessDeniedExceptionが発生するがzappa-exec-userの権限が不足しているか
+
+本書では、2つのIAMユーザを作成しております。
+- `flask-blog-dynamodb`: DynamoDBを操作するためのIAMユーザ
+- `zappa-exec-user`: Zappaを使ってサーバレスにデプロイするためのIAMユーザ
+
+そのため、本書の通り`flask-blog-dynamodb`をお使いください。
