@@ -228,3 +228,7 @@ Apple Siliconに対応したuniversal版のインストーラーをお使いく�
 - `zappa-exec-user`: Zappaを使ってサーバレスにデプロイするためのIAMユーザ
 
 そのため、本書の通り`flask-blog-dynamodb`をお使いください。
+
+権限を追加することで、1つのIAMユーザのみですべての操作を行うことも可能です。
+本書では締切の関係上掲載できなかったため、興味がありましたら元となっております[Pythonで作るはじめてのサーバレスアプリケーション](https://www.amazon.co.jp/dp/B07JD6NDS7)も合わせてご参考ください。
+
