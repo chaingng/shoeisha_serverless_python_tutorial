@@ -40,6 +40,7 @@
 - `application`: サーバレスBlogアプリケーション
 - `serverless-bot`: サーバレスBot
 - `snippets`: 本文中のリストのスニペット（例：リスト6.2 -> list.6.2.txt）
+- `chapXX`: 各章終了時のサンプルアプリケーション
 
 `zappa_settings.json`は`zappa_settings.json.sample`としてサンプルを置いております。
 
