@@ -37,8 +37,8 @@
 
 ## 概要
 
-- `application`: サーバレスBlogアプリケーション
-- `serverless-bot`: サーバレスBot
+- `application`:  最終版（本書読了時）のサーバレスBlogアプリケーション
+- `serverless-bot`: 最終版（本書読了時）のサーバレスBot
 - `snippets`: 本文中のリストのスニペット（例：リスト6.2 -> list.6.2.txt）
 - `chapXX`: 各章終了時のサンプルアプリケーション
 
