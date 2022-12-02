@@ -115,7 +115,15 @@ pipenv install "markupsafe==1.1.1"
 
 その後、Flask-Scriptのインストールが可能になります。
 
-### 2.zappaのインストール時にコンフリクトが発生する
+### 2.flask-loginのインストール時にコンフリクトが発生する
+
+以下のコマンドで、バージョン0.5.0を指定してインストールしてください。
+
+```
+pipenv install "flask-login==0.5.0"
+```
+
+### 3.zappaのインストール時にコンフリクトが発生する
 
 #### 原因
 
@@ -134,7 +142,7 @@ pipenv install "Flask==1.1.2"
 その後、zappaのインストールが可能になります。
 
 
-### 3.zappa deploy実行時にエラーが発生する
+### 4.zappa deploy実行時にエラーが発生する
 
 #### 原因
 
@@ -174,7 +182,7 @@ zappa deploy dev
 現在修正対応中のため、今後はzappaの最新バージョンにてエラーが発生しないよう対応される見込みです。
 随時こちらでも情報をアップデートさせていただきます。
 
-### 4. P177の python manage.py init_db で 「Unable to locate credentials」エラーが発生する
+### 5. P177の python manage.py init_db で 「Unable to locate credentials」エラーが発生する
 
 #### 原因
 
@@ -202,7 +210,7 @@ SERVERLESS_AWS_SECRET_KEY
 
 設定後、windowsを再起動して環境変数が読み込まれているか確認してみてください。
 
-### 5. 10章にてzappa deploy時に`Error: Warning! Status check on the deployed lambda failed. A GET request to '/' yielded a 502 response code.` が発生するが動作に問題ないか
+### 6. 10章にてzappa deploy時に`Error: Warning! Status check on the deployed lambda failed. A GET request to '/' yielded a 502 response code.` が発生するが動作に問題ないか
 
 Zappaのデフォルトでは、Webアプリケーションも動くことを想定しているため
 エンドポイントが存在しない場合、つまり10章のスクリプトだけの場合には上記のWarningが表示されますが、動作に問題はございません。
@@ -220,14 +228,14 @@ Zappaのデフォルトでは、Webアプリケーションも動くことを想
 
 本書ではWarning非表示のための設定を追記することでチュートリアルが煩雑になることを防ぐため、あえて注釈での説明のみにとどめておりましたが、こちらで追加説明させていただきます。
 
-### 6. P146で「これまでセッション情報はローカルに保存していましたが」とあるものの、これまでセッションのコードは出てきていないためどの箇所で利用しているのか
+### 7. P146で「これまでセッション情報はローカルに保存していましたが」とあるものの、これまでセッションのコードは出てきていないためどの箇所で利用しているのか
 
 前章8章の「ログイン機能を導入する」のところですが、前提としてログイン機能の実現にはセッションが必要となります。
 そのため、`Flask-login`が内部的にFlaskのsession機構を利用しております。
 
 ご質問の通り明示的な操作として出てきていなかったため、こちらにて補足させていただきます。
 
-### 7. P157の`.bashrc`の環境変数はP.175で`zappa_settings.json`で設定しているので不要ではないか
+### 8. P157の`.bashrc`の環境変数はP.175で`zappa_settings.json`で設定しているので不要ではないか
 
 `.bashrc`の環境変数ですが2つの理由で作成しております。
 
@@ -244,14 +252,14 @@ Zappaのデフォルトでは、Webアプリケーションも動くことを想
 コードをアップデートしたときに順に動作確認することで急に大きな問題が発生することを防いだり、
 また本書の構成としてステップごとに学んでいただけるようにというコンセプトも理由としてございます。
 
-### 8. Mac M1を使っている場合にどのPythonバージョンをインストールすればよいか
+### 9. Mac M1を使っている場合にどのPythonバージョンをインストールすればよいか
 
 [Support macOS 11 and Apple Silicon Macs](https://bugs.python.org/issue41100)にあるとおり、Python3.8以降ではM1もサポートされています。
 
 Python3.9以降を新規で使いたい場合は[リリースニュース](https://www.python.org/downloads/release/python-391/)である通り
 Apple Siliconに対応したuniversal版のインストーラーをお使いください。
 
-### 9. P177でpython manage.py init_dbを実行すると 「AccessDeniedException」エラーが発生するがzappa-exec-userの権限が不足しているか
+### 10. P177でpython manage.py init_dbを実行すると 「AccessDeniedException」エラーが発生するがzappa-exec-userの権限が不足しているか
 
 本書では、2つのIAMユーザを作成しております。
 - `flask-blog-dynamodb`: DynamoDBを操作するためのIAMユーザ
