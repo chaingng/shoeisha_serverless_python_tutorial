@@ -7,9 +7,10 @@ name = "pypi"
 flask = "==1.1.2"
 pynamodb = "*"
 flask-script = "*"
-jinja2 = "==3.0.3"
-itsdangerous = "==2.0.1"
-werkzeug = "==0.15.6"
+jinja2 = "==2.11.3"
+itsdangerous = "==1.1.0"
+werkzeug = "==0.16.1"
+markupsafe = "==1.1.1"
 
 [dev-packages]
 
