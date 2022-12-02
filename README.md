@@ -107,9 +107,10 @@ ModuleNotFoundError: No module named 'flask._compat'
 
 ```
 pipenv install "Flask==1.1.2"
-pipenv install "Jinja2==3.0.3"
-pipenv install "itsdangerous==2.0.1"
-pipenv install "Werkzeug==0.15.6"
+pipenv install "jinja2==2.11.3"
+pipenv install "itsdangerous==1.1.0"
+pipenv install "werkzeug==0.16.1"
+pipenv install "markupsafe==1.1.1" 
 ```
 
 その後、Flask-Scriptのインストールが可能になります。
