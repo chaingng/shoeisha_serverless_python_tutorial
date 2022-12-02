@@ -1,0 +1,47 @@
+import datetime
+import gspread
+import boto3
+import pytz
+from oauth2client.service_account import ServiceAccountCredentials
+import os
+
+
+def get_kpi():
+    client = boto3.client(
+        'dynamodb',
+        aws_access_key_id=os.environ.get('SERVERLESS_AWS_ACCESS_KEY_ID'),
+        aws_secret_access_key=os.environ.get('SERVERLESS_AWS_SECRET_KEY'),
+        region_name='ap-northeast-1'
+    )
+
+    entry_num = client.scan(TableName='serverless_blog_entries', Select='COUNT')['Count']
+    return entry_num
+
+
+def update_gas(today, entry_num, doc_id):
+    keyfile_path = 'serverless-gas-client-secret.json'
+    scope = ['https://spreadsheets.google.com/feeds']
+    credentials = ServiceAccountCredentials.from_json_keyfile_name(
+        keyfile_path, scope)
+
+    client = gspread.authorize(credentials)
+
+    gfile = client.open_by_key(doc_id)
+    worksheet = gfile.sheet1
+
+    list_of_lists = worksheet.get_all_values()
+    new_row_number = len(list_of_lists) + 1
+
+    worksheet.update_cell(new_row_number, 1, today)
+    worksheet.update_cell(new_row_number, 2, entry_num)
+
+
+def run_bot():
+    doc_id = '1Loagi0Bxr5OL4SdW_KkpKYtat4jIFYV-PTVU5o8cjZQ'
+    today = str(datetime.datetime.now(pytz.timezone('Asia/Tokyo')).date())
+    entry_num = get_kpi()
+    update_gas(today, entry_num, doc_id)
+
+
+if __name__ == "__main__":
+    run_bot()

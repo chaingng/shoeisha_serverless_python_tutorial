@@ -1,0 +1,17 @@
+{
+    "dev": {
+        "app_function": "server.app",
+        "aws_region": "ap-northeast-1",
+        "profile_name": "serverless-blog",
+        "project_name": "application",
+        "runtime": "python3.8",
+        "s3_bucket": "zappa-n82r0e23r",
+        "environment_variables": {
+            "SERVERLESS_BLOG_CONFIG": "production",
+            "SERVERLESS_USER_PW": "[本番環境でのユーザーログインパスワード]",
+            "SERVERLESS_SECRET_KEY": "[本番環境でのsecret]",
+            "SERVERLESS_AWS_ACCESS_KEY_ID": "[DynamoDB用に作成したアクセスキーID]",
+            "SERVERLESS_AWS_SECRET_KEY" : "[DynamoDB用に作成したシークレットキー]"
+        }
+    }
+}
